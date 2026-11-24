@@ -27,14 +27,16 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div className="flex gap-4 mt-auto pt-2">
-        <a
-          href={project.live}
-          target="_blank"
-          rel="noreferrer"
-          className="text-sm font-semibold text-indigo-700 hover:underline"
-        >
-          Live site ↗
-        </a>
+        {project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-semibold text-indigo-700 hover:underline"
+          >
+            Live site ↗
+          </a>
+        )}
         <a
           href={project.repo}
           target="_blank"

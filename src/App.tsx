@@ -1,4 +1,4 @@
-import { projects, skillGroups, contact } from "./data";
+import { projects, smallerProjects, skillGroups, contact } from "./data";
 import ProjectCard from "./components/ProjectCard";
 
 const NAV = [
@@ -78,6 +78,28 @@ export default function App() {
           <div className="grid gap-6 md:grid-cols-2">
             {projects.map((project) => (
               <ProjectCard key={project.name} project={project} />
+            ))}
+          </div>
+
+          <h3 className="text-lg font-bold mt-10 mb-4">Other projects</h3>
+          <p className="text-sm text-slate-600 mb-4">
+            Smaller exercises and practice projects from coursework.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {smallerProjects.map((p) => (
+              <a
+                key={p.name}
+                href={p.repo}
+                target="_blank"
+                rel="noreferrer"
+                className="block bg-white rounded-xl shadow p-4 hover:shadow-md transition-shadow"
+              >
+                <p className="font-semibold text-slate-900">{p.name}</p>
+                <p className="text-sm text-slate-600 mt-1">{p.description}</p>
+                <p className="text-xs text-indigo-700 font-medium mt-2">
+                  Code on GitHub ↗
+                </p>
+              </a>
             ))}
           </div>
         </section>
